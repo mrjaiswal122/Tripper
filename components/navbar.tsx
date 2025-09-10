@@ -1,6 +1,6 @@
 import React from 'react'
 import { HoveredLink, Menu, MenuItem } from './ui/floating_navbar'
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+// import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 
 type Props = {}
 
@@ -24,8 +24,8 @@ export default function Navbar({ }: Props) {
           <HoveredLink href="/branding">Others</HoveredLink>
         </div>
       </MenuItem>
-      <MenuItem item=''>
-      <SignedOut>
+      <MenuItem item='Account'>
+      {/* <SignedOut>
               <SignInButton />
               <SignUpButton>
                 <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
@@ -35,7 +35,7 @@ export default function Navbar({ }: Props) {
             </SignedOut>
             <SignedIn>
               <UserButton />
-            </SignedIn>
+            </SignedIn> */}
       </MenuItem>
     </Menu>
 
