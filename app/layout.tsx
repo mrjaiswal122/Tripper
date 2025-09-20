@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
+import TravelAssistant from "@/components/TravelAssistant";
 
 
 const geistSans = Geist({
@@ -35,6 +36,11 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <div className="pointer-events-none">
+            <div className="pointer-events-auto">
+              <TravelAssistant />
+            </div>
+          </div>
         </body>
       </html>
     // {/* </ClerkProvider> */}

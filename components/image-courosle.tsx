@@ -269,6 +269,14 @@ function Mapper() {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const tag = target?.tagName;
+      const editable = !!target && (target as HTMLElement).isContentEditable;
+      const insideDialog = !!target && !!target.closest('[role="dialog"]');
+      if (editable || tag === 'INPUT' || tag === 'TEXTAREA' || insideDialog) {
+        return;
+      }
+
       if (event.key === 'ArrowLeft') {
         handleManualNavigation((frame - 1 + mapper.length) % mapper.length);
       } else if (event.key === 'ArrowRight') {
