@@ -322,13 +322,13 @@ function Mapper() {
                 <div className="flex">
 
                 "
-                <TextRollUpEffect>
+                {/* <TextRollUpEffect> */}
                   Discover the Living Heritage of Sikkim's Monasteries
-                </TextRollUpEffect>
+                {/* </TextRollUpEffect> */}
                 "
                 </div>
               </h1>
-              <nav className="text-3xl text-center flex justify-center flex-wrap mt-4">
+              <nav className={`text-2xl ${inriaSerif.className} font-normal text-center flex justify-center flex-wrap mt-4`}>
                 <a 
                   href="#explore" 
                   className="capitalize pr-2 hover:underline focus:underline outline-none  rounded"

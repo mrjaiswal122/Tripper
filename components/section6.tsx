@@ -1,3 +1,4 @@
+import { inriaSerif, italianno } from "@/libs/font";
 import React from "react";
 
 const Section6 = () => {
@@ -10,12 +11,12 @@ const Section6 = () => {
       <div className="absolute inset-0  flex items-center ml-20 ">
         <div className="text-left text-white max-w-3xl px-6">
           {/* Title */}
-          <h1 className="text-2xl md:text-4xl font-extrabold mb-6 drop-shadow-lg">
+          <h1 className={` ${inriaSerif.className}text-2xl md:text-4xl font-extrabold mb-6 drop-shadow-lg`}>
             Begin Your Journey Through the Monasteries of Sikkim
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg italic mb-8">
+          <p className={`${italianno.className} text-5xl italic mb-8`}>
             From 360° virtual tours to travel guides, let your spiritual and cultural journey begin here.
           </p>
 
