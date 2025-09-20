@@ -209,6 +209,7 @@ export default function TravelAssistant() {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    e.stopPropagation();
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
