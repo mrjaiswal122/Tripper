@@ -1,1 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+.font-inria-serif {
+  font-family: var(--font-inria-serif), serif;
+}

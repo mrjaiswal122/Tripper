@@ -1,43 +1,54 @@
-import React from 'react'
-import { HoveredLink, Menu, MenuItem } from './ui/floating_navbar'
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { usePathname } from 'next/navigation';
 // import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 
 type Props = {}
+export default function Navbar(){
+  const navRef = useRef<HTMLElement | null>(null);
+  const [pathname,setPathname]=useState("/")
+  // useEffect(()=>{
+  //     const path= usePathname();
+  //     setPathname(path);
+      
+  // },[]);
+  useGSAP(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (navRef.current) {
+        if (scrollY > window.innerHeight) {
+          gsap.to(navRef.current, { backgroundColor: 'rgba(0,0,0,1)', duration: 0.3, ease: 'power2.out' });
+        } else {
+          gsap.to(navRef.current, { backgroundColor: 'rgba(0,0,0,0)', duration: 0.3, ease: 'power2.out' });
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-export default function Navbar({ }: Props) {
   return (
-
-    <Menu>
-      <MenuItem item='Services' >
-        <div className="flex flex-col space-y-4 text-sm">
-          <HoveredLink href="/web-dev">Guides</HoveredLink>
-          <HoveredLink href="/interface-design">Stays</HoveredLink>
-          <HoveredLink href="/seo">Food</HoveredLink>
-          <HoveredLink href="/branding">Events</HoveredLink>
-        </div>
-      </MenuItem>
-      <MenuItem item='Digital Archives' >
-        <div className="flex flex-col space-y-4 text-sm">
-          <HoveredLink href="/web-dev">Manuscript</HoveredLink>
-          <HoveredLink href="/interface-design">Murals</HoveredLink>
-          <HoveredLink href="/seo">Historical documents</HoveredLink>
-          <HoveredLink href="/branding">Others</HoveredLink>
-        </div>
-      </MenuItem>
-      <MenuItem item='Account'>
-      {/* <SignedOut>
-              <SignInButton />
-              <SignUpButton>
-                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn> */}
-      </MenuItem>
-    </Menu>
-
-  )
+    <nav
+      ref={navRef}
+      className={`z-50 h-15 max-w-[1536px] w-full px-3 fixed top-0 flex justify-between items-center gap-3 backdrop-blur-2xl text-white transition-colors duration-300 ${pathname!="/"?"bg-black":""}`}
+      style={{ backgroundColor: 'rgba(0,0,0,0)' }}
+    >
+      <img src="/logo.jpg" alt="" className='h-8 w-8 ml-10'/>
+      <div className='flex gap-10'>
+        <a href="/" aria-label="Home">HOME</a>
+        <a href="#" aria-label="Digital Archive">DIGITAL ARCHIVE</a>
+        <a href="/map/monasteries" aria-label="Map">MAP</a>
+        <a href="/guidesAndHotels" aria-label="Guides and Hotels">GUIDES & HOTELS</a>
+        <a href="#" aria-label="Festivals and Events">FESTIVALS & EVENTS</a>
+        <a href="#" aria-label="News">NEWS</a>
+      </div>
+      <div className='mr-10'>
+         LOGIN/SIGNUP
+      </div>
+    </nav>
+  );
 }

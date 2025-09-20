@@ -1,7 +1,11 @@
-// import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-// export default clerkMiddleware();
+// export default clerkMiddleware(
+//     // { debug: process.env.NODE_ENV === 'development' }
+// );
+export default function middleware(){
 
+}
 export const config = {
     matcher:[
      // Skip Next.js internals and all static files, unless found in search params

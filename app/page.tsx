@@ -1,8 +1,25 @@
-import Image from "next/image";
+
+import {Mapper }from "@/components/image-courosle";
+import { inriaSerif } from "@/libs/font";
+import { TextRollUpEffect } from "@/components/ui/text-rollup-effect"
+import Section2 from "@/components/section2";
+import Section3 from "@/components/section3";
+import Section6 from "@/components/section6";
+import GetInTouch from "@/components/get-in-touch";
+import Section4 from "@/components/section4";
+
 export default function Home() {
   return (
-<>
-{/* <Navbar /> */}
-</>
+    <>
+<main className="w-screen ">
+
+<Mapper/>
+<Section2/>
+<Section3 />
+<Section4 />
+<Section6 />
+<GetInTouch />
+</main>
+    </>
   );
 }
