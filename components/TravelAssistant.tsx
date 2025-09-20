@@ -219,10 +219,9 @@ export default function TravelAssistant() {
   const toggle = () => setOpen(v => !v);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3">
-      {/* Chat Panel */}
+    <div ref={rootRef} className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="w-80 sm:w-96 max-w-[90vw] bg-white text-black rounded-2xl shadow-2xl border border-black/10 overflow-hidden flex flex-col animate-[fadeIn_.2s_ease-out]">
+        <div className="w-80 sm:w-96 max-w-[90vw] bg-white text-black rounded-2xl shadow-2xl border border-black/10 overflow-hidden flex flex-col animate-[fadeIn_.2s_ease-out]" role="dialog" aria-modal="true" aria-label="Sikkim Travel Assistant">
           <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
@@ -254,6 +253,7 @@ export default function TravelAssistant() {
           <div className="border-t border-black/10 bg-white p-2">
             <div className="flex items-end gap-2">
               <textarea
+                ref={inputRef}
                 aria-label="Message"
                 value={input}
                 onChange={e => setInput(e.target.value)}
@@ -274,7 +274,6 @@ export default function TravelAssistant() {
         </div>
       )}
 
-      {/* Floating Button */}
       <button
         aria-label="Open travel assistant"
         onClick={toggle}
