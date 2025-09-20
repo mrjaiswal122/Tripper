@@ -134,6 +134,8 @@ export default function TravelAssistant() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const listRef = useRef<HTMLDivElement | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -143,7 +145,6 @@ export default function TravelAssistant() {
 
   useEffect(() => {
     if (!open && messages.length === 0) {
-      // preload greeting next time it opens
       setMessages([
         {
           id: "welcome",
@@ -153,6 +154,24 @@ export default function TravelAssistant() {
       ]);
     }
   }, [open, messages.length]);
+
+  // Focus input and trap keyboard events while chat is open
+  useEffect(() => {
+    if (!open) return;
+    inputRef.current?.focus();
+
+    const trap = (e: KeyboardEvent) => {
+      // Do not prevent default typing/scrolling, but stop propagation so global shortcuts don't fire
+      e.stopPropagation();
+    };
+
+    window.addEventListener("keydown", trap, true);
+    window.addEventListener("keyup", trap, true);
+    return () => {
+      window.removeEventListener("keydown", trap, true);
+      window.removeEventListener("keyup", trap, true);
+    };
+  }, [open]);
 
   const handleSend = () => {
     const q = input.trim();
