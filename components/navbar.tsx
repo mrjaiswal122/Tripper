@@ -52,7 +52,7 @@ export default function Navbar(){
         <a href="/map/monasteries" aria-label="Map">MAP</a>
         <a href="/guidesAndHotels" aria-label="Guides and Hotels">GUIDES & HOTELS</a>
         <a href="#" aria-label="Festivals and Events">FESTIVALS & EVENTS</a>
-        <a href="#" aria-label="News">NEWS</a>
+        <a href="/news" aria-label="News">NEWS</a>
       </div>
       <div className='mr-10'>
          LOGIN/SIGNUP
