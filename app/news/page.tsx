@@ -34,13 +34,8 @@ export default function NewsPage() {
       setStatus("error");
       setMessage("We couldn't subscribe you right now. Please try again later.");
     } catch (err) {
-      // Fallback to mailto if network error
-      const mailto = `mailto:info@example.com?subject=Newsletter%20Subscription&body=Please%20subscribe%20me%20with%20this%20email:%20${encodeURIComponent(
-        email
-      )}`;
-      window.location.href = mailto;
-      setStatus("success");
-      setMessage("Opening your email app to complete subscription.");
+      setStatus("error");
+      setMessage("We couldn't subscribe you right now. Please try again later.");
     }
   }
 
