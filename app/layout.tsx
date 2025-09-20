@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
+import TravelAssistant from "@/components/TravelAssistant";
 
 
 const geistSans = Geist({
@@ -35,12 +36,9 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
-          {/* Floating travel assistant */}
           <div className="pointer-events-none">
-            {/* wrapper keeps stacking context clean; inner has pointer events */}
             <div className="pointer-events-auto">
-              {/* client component */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <TravelAssistant />
             </div>
           </div>
         </body>
