@@ -207,16 +207,16 @@ const MapView = () => {
   }
 
   return (
-    <div className="w-full relative">
+  <div className="w-full relative pt-13">
       {/* Header */}
-      <div className="mt-13 mb-2 text-center aba">
+      {/* <div className="mt-13 mb-2 text-center aba">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Sacred Monasteries of Sikkim
         </h1>
         <p className="text-gray-600">
           Discover the spiritual heritage and ancient wisdom of Sikkim's monasteries
         </p>
-      </div>
+      </div> */}
 
       {/* Map Container */}
       <div className="relative rounded-xl overflow-hidden shadow-2xl">
@@ -231,13 +231,13 @@ const MapView = () => {
         
         <div 
           ref={mapRef} 
-          className="w-full h-[600px] bg-gray-100"
-          style={{ minHeight: '600px' }}
+          className="w-full h-[700px] bg-gray-100"
+          style={{ minHeight: '700px' }}
         />
       </div>
 
       {/* Legend */}
-      <div className="mt-6 bg-white p-4 rounded-lg shadow-lg">
+      {/* <div className="mt-6 bg-white p-4 rounded-lg shadow-lg">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">Map Legend</h3>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
@@ -249,6 +249,19 @@ const MapView = () => {
             <span className="text-sm text-gray-600">Click for detailed information</span>
           </div>
         </div>
+      </div> */}
+
+      {/* 360 View Floating Circle */}
+      <div className=" z-[1000] fixed right-0 bottom-0  flex flex-col items-center pointer-events-none select-none">
+        <div className="w-30 h-30 bg-black bg-opacity-90 rounded-full flex flex-col items-center justify-center text-white shadow-lg border-4 border-white animate-pulse relative">
+          <svg className="w-10 h-10 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+            <path d="M2 12a10 10 0 0 1 20 0" stroke="currentColor" strokeWidth="2" />
+          </svg>
+            <span className="text-3xl font-bold leading-none">360°</span>
+            <span className="text-[0.65rem] mt-1 font-semibold uppercase tracking-wide leading-tight text-center">Virtual Tour</span>
+        </div>
+        <span className="text-sm text-gray-800 mt-3 text-center font-semibold bg-white bg-opacity-80 px-3 py-1 rounded shadow">This section features immersive 360° images of Sikkim's monasteries</span>
       </div>
 
       {/* Custom Styles */}
