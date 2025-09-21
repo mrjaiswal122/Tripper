@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { usePathname } from 'next/navigation';
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 // import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 
 type Props = {}
@@ -42,7 +43,7 @@ export default function Navbar(){
   return (
     <nav
       ref={navRef}
-      className="z-50 h-15 max-w-[1536px] w-full px-3 fixed top-0 flex justify-between items-center gap-3 backdrop-blur-2xl text-white transition-colors duration-300"
+      className="z-50 h-13 max-w-[1536px] w-full px-3 fixed top-0 flex justify-between items-center gap-3 backdrop-blur-2xl text-white transition-colors duration-300"
       style={{ backgroundColor: pathname !== "/" ? 'rgba(0,0,0,1)' : 'rgba(0,0,0,0)' }}
     >
       <img src="/logo.jpg" alt="" className='h-8 w-8 ml-10'/>
@@ -55,7 +56,19 @@ export default function Navbar(){
         <a href="/news" aria-label="News">NEWS</a>
       </div>
       <div className='mr-10'>
-         LOGIN/SIGNUP
+               <header className="flex justify-end items-center p-4 gap-4 h-16">
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-8 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </header>
       </div>
     </nav>
   );

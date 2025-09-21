@@ -82,7 +82,7 @@ export default function FestivalsAndEventsPage() {
   ];
 
   const EventCard: React.FC<{ event: CulturalEvent }> = ({ event }) => (
-    <div className="bg-[#fdf6e7] rounded-md shadow-lg overflow-hidden border border-amber-800/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="bg-[#fdf6e7]  rounded-md shadow-lg overflow-hidden border border-amber-800/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
       <div className="p-5">
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-xl font-medieval text-amber-900">{event.name}</h3>
@@ -218,7 +218,7 @@ export default function FestivalsAndEventsPage() {
         .event-color-28 { background-color: #6B8E23; }
       `}</style>
 
-      <div className="min-h-screen bg-[#F1EADF] p-4 sm:p-6 lg:p-8">
+      <div className="min-h-screen mt-10 bg-[#F1EADF] p-4 sm:p-6 lg:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="bg-cover bg-center bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] rounded-lg shadow-2xl p-6 mb-6 border-4 border-amber-900">
             <div className="bg-amber-100/80 p-6 rounded-md backdrop-blur-sm">
