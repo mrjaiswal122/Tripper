@@ -209,7 +209,7 @@ const MapView = () => {
   return (
     <div className="w-full relative">
       {/* Header */}
-      <div className="my-20 text-center">
+      <div className="mt-20 text-center">
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
           Sacred Monasteries of Sikkim
         </h1>

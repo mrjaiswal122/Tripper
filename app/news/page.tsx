@@ -23,7 +23,8 @@ export default function NewsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-
+      console.log(res);
+      
       if (res.ok) {
         setStatus("success");
         setMessage("You're subscribed. Check your inbox for a confirmation email.");
@@ -34,6 +35,8 @@ export default function NewsPage() {
       setStatus("error");
       setMessage("We couldn't subscribe you right now. Please try again later.");
     } catch (err) {
+      console.log("I am in the error while sending email");
+      
       setStatus("error");
       setMessage("We couldn't subscribe you right now. Please try again later.");
     }
